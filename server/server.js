@@ -12,14 +12,9 @@ const connect = require("./db");
 const { upgradeToSocket } = require("./socket");
 
 const whitelist = ["https://messagingv1.netlify.app"];
-const corsOptionsDelegate = function (req, callback) {
-  let corsOptions;
-  if (whitelist.indexOf(req.header("Origin")) !== -1 || true) {
-    corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
-  } else {
-    corsOptions = { origin: false }; // disable CORS for this request
-  }
-  callback(null, corsOptions); // callback expects two parameters: error and options
+const corsOptionsDelegate = {
+  origin: "https://messagingv1.netlify.app",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 
 //middleware
