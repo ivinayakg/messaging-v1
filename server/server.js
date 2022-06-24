@@ -11,7 +11,7 @@ const xss = require("xss-clean");
 const connect = require("./db");
 const { upgradeToSocket } = require("./socket");
 
-const whitelist = ["http://example1.com", "http://example2.com"];
+const whitelist = ["https://messagingv1.netlify.app"];
 const corsOptionsDelegate = function (req, callback) {
   let corsOptions;
   if (whitelist.indexOf(req.header("Origin")) !== -1 || true) {
