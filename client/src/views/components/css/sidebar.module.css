@@ -1,0 +1,49 @@
+.main {
+  padding: 1.2rem;
+  width: 90px;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-right: 2px solid var(--secondary);
+  gap: 10px;
+}
+
+.icon {
+  border-radius: 50%;
+  background-color: var(--secondary);
+  width: 100%;
+  aspect-ratio: 1/1;
+  padding: 10px;
+  display: grid;
+  grid-template-areas: overflow;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.icon:hover {
+  transform: scale(1.08) translateY(-1px);
+}
+
+.icon > * {
+  grid: "overflow";
+}
+
+.icon svg {
+  height: 100%;
+  object-fit: contain;
+  transition: 300ms ease-in-out;
+}
+
+.icon:hover svg {
+  transform: rotateZ(90deg);
+}

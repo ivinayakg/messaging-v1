@@ -7,7 +7,7 @@ const createToken = (payload) => {
 };
 
 const verifyToken = (req, res, next) => {
-  const token = req.headers.Authorization || undefined;
+  const token = req.headers.authorization || undefined;
   if (!token) {
     throw new Error("provide a valid token");
   }
@@ -21,4 +21,12 @@ const verifyToken = (req, res, next) => {
   });
 };
 
-module.exports = { createToken, authMiddleware: verifyToken };
+const socketAuthMiddleware = (token) => {
+  return jwt.verify(token, process.env.JWT_SECRET);
+};
+
+module.exports = {
+  createToken,
+  authMiddleware: verifyToken,
+  socketAuthMiddleware,
+};

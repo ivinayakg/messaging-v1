@@ -1,0 +1,28 @@
+.form {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px 8px;
+  background-color: var(--secondary);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form input {
+  background-color: transparent;
+  flex-grow: 2;
+}
+
+.form button {
+  padding: 5px 9px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  border: none;
+  background-color: var(--highlight);
+  color: var(--secondary);
+}
+
+.form button:disabled {
+  cursor: not-allowed;
+}

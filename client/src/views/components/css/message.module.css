@@ -1,0 +1,33 @@
+.wrapper {
+  width: 100%;
+  padding: 0.3rem 1.2rem;
+  display: flex;
+  gap: 10px;
+  justify-content: stretch;
+  align-items: center;
+}
+.wrapper span {
+  border-radius: 60%;
+  background-color: var(--secondary);
+  width: 40px;
+  aspect-ratio: 1/1;
+  padding: 10px;
+  display: grid;
+  grid-template-areas: overflow;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.username {
+  color: rgba(244, 244, 244, 0.5);
+}
+
+.msg {
+  font-size: 1.2rem;
+  font-weight: 500;
+}

@@ -1,0 +1,41 @@
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(35, 35, 35, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 1.2rem;
+  border-radius: 10px;
+  background-color: var(--secondary);
+  gap: 10px;
+  max-width: 80vw;
+  width: 350px;
+}
+
+.form button {
+  background-color: var(--primary);
+  border: none;
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 1rem;
+  color: white;
+}
+
+.form input {
+  width: 100%;
+}
+
+.form label {
+  font-weight: 500;
+}
