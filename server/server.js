@@ -11,15 +11,14 @@ const xss = require("xss-clean");
 const connect = require("./db");
 const { upgradeToSocket } = require("./socket");
 
-const whitelist = ["https://messagingv1.netlify.app"];
-const corsOptionsDelegate = {
-  origin: "https://messagingv1.netlify.app",
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
+// const whitelist = ["https://messagingv1.netlify.app"];
+// const corsOptionsDelegate = {
+//   origin: "https://messagingv1.netlify.app",
+//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+// };
 
 //middleware
 app.use(helmet());
-app.use(cors(corsOptionsDelegate));
 app.use(xss());
 app.use(mongoSanitize());
 app.use(express.json({ limit: "10mb" }));
