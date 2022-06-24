@@ -11,13 +11,18 @@ const xss = require("xss-clean");
 const connect = require("./db");
 const { upgradeToSocket } = require("./socket");
 
-// const whitelist = ["https://messagingv1.netlify.app"];
-// const corsOptionsDelegate = {
-//   origin: "https://messagingv1.netlify.app",
-//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-// };
-
+let allowlist = ["https://messagingv1.netlify.app/"];
+let corsOptionsDelegate = function (req, callback) {
+  let corsOptions;
+  if (allowlist.indexOf(req.header("Origin")) !== -1) {
+    corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
+  } else {
+    corsOptions = { origin: false }; // disable CORS for this request
+  }
+  callback(null, corsOptions); // callback expects two parameters: error and options
+};
 //middleware
+app.use(cors(corsOptionsDelegate));
 app.use(helmet());
 app.use(xss());
 app.use(mongoSanitize());
