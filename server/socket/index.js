@@ -2,14 +2,6 @@ const { socketAuthMiddleware } = require("../utils/jwt");
 const { WebSocketServer } = require("ws");
 const newMessageEmitter = require("./messaging/new");
 
-function recieveSocketData(data) {
-  try {
-    return JSON.parse(data);
-  } catch (error) {
-    return data + "";
-  }
-}
-
 const wss = new WebSocketServer({
   noServer: true,
 });
@@ -63,7 +55,5 @@ function upgradeToSocket(request, socket, head) {
     return;
   }
 }
-
-async function socketController(ws, data) {}
 
 module.exports = { upgradeToSocket };
